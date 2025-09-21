@@ -10,12 +10,22 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+        /* Initially hide the main content */
+        #mainContent {
+            display: none;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
+    <!-- Loader -->
+    <div id="loader" class="fixed inset-0 bg-white flex flex-col justify-center items-center z-50">
+        <img src="shivam.png" alt="Loading..." class="w-40 h-40 rounded-full object-cover">
+        <p class="mt-4 text-lg text-gray-600 font-semibold">Loading job opportunity...</p>
+    </div>
+
     <!-- Main Container -->
-    <div class="container mx-auto px-4 py-8 md:py-12">
+    <div id="mainContent" class="container mx-auto px-4 py-8 md:py-12">
         <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden">
             
             <!-- Header Section -->
@@ -91,10 +101,30 @@
             
             <!-- Footer -->
             <div class="bg-gray-100 text-center p-4 border-t">
-                <p class="text-sm text-gray-500">All the best with your application! Shivam </p>
+                <p class="text-sm text-gray-500">All the best with your application!</p>
             </div>
         </div>
     </div>
 
+    <script>
+        window.addEventListener('load', function() {
+            // Simulate a loading time
+            setTimeout(function() {
+                const loader = document.getElementById('loader');
+                const mainContent = document.getElementById('mainContent');
+                
+                if (loader) {
+                    loader.style.display = 'none';
+                }
+                
+                if (mainContent) {
+                    mainContent.style.display = 'block';
+                }
+            }, 1500); // 1.5 seconds delay
+        });
+    </script>
+
 </body>
 </html>
+
+
